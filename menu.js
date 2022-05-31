@@ -3,9 +3,9 @@ const back = document.getElementById("back");
 const nav = document.getElementById("nav");
 const a =	document.getElementsByTagName('a'); 
 const Canvas3d=document.getElementById("Canvas3d");
-const Test = document.getElementById("test");
+const CanvasFloor = document.getElementById("CanvasFloor");
 Canvas3d.style.display="none";
-test.style.display="block";
+CanvasFloor.style.display="block";
 console.log(a[0]);
 
 
