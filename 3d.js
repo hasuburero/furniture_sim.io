@@ -42,13 +42,15 @@ function init(){
 	
 	//make box
 	//const material = new THREE.MeshNormalMaterial();
-	const box = new THREE.Mesh(geometry, material);
-	scene.add(box);
+	let box = new THREE.Mesh(geometry, material);
+	let box2= new THREE.Mesh(new THREE.BoxGeometry(50, 50, 50), new THREE.MeshStandardMaterial({
+		color: 0xff0000
+	}));
 
 	//light
 	const light = new THREE.AmbientLight(0xffffff, 1.0);
 
-	const OPACITY = 0.6;
+	const OPACITY = 0.5;
 	const TRANSPARENT = true;
 	const DEPTH_TEST = false;
 	const alphaToCoverage = true;
@@ -59,7 +61,13 @@ function init(){
 	console.log(box.material.depthTest = DEPTH_TEST);
 	console.log(box.material.alphaToCoverage = alphaToCoverage);
 
+	console.log(box2.material.opacity = 1.0);
+	console.log(box2.material.transparent = true);
+	console.log(box2.material.depthTest = false);
+	console.log(box2.material.alphaToCoverage = true);
 
+	scene.add(box);
+	scene.add(box2);
 
 	//const light = new THREE.DirectionalLight(0xffffff);
 	//light.intensity=2;
