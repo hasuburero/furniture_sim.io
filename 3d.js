@@ -6,11 +6,6 @@ function init(){
 	const width = window.innerWidth;
 	const height = window.innerHeight-50;
 
-	const OPACITY = 0.7;
-	const TRANSPARENT = true;
-	const DEPTH_TEST = false;
-	//let loader = new GLTFLoader();
-
 		
 	const canvasElement = document.querySelector('#Canvas3d');
 	const renderer = new THREE.WebGLRenderer({
@@ -23,9 +18,10 @@ function init(){
 	renderer.setSize(width, height);
 	renderer.setPixelRatio(window.devicePixelRatio);
 
+
 	const scene = new THREE.Scene();
 
-	scene.background = new THREE.Color(0xffffff);
+	scene.background = new THREE.Color(0xfff0f0);
 	///////////////////////////////////////////////
 	let aspect = width/height;
 	/////////////////////////////////////////////
@@ -40,14 +36,31 @@ function init(){
 	////////////////////////////////////
 
 	const geometry = new THREE.BoxGeometry(100, 100, 100);
-	//const material = new THREE.MeshStandardMaterial({
-	//	color: 0x0000ff
-	//});
-	const material = new THREE.MeshNormalMaterial();
+	const material = new THREE.MeshStandardMaterial({
+		color: 0xf0f000
+	});
+	
+	//make box
+	//const material = new THREE.MeshNormalMaterial();
 	const box = new THREE.Mesh(geometry, material);
 	scene.add(box);
 
+	//light
 	const light = new THREE.AmbientLight(0xffffff, 1.0);
+
+	const OPACITY = 0.6;
+	const TRANSPARENT = true;
+	const DEPTH_TEST = false;
+	const alphaToCoverage = true;
+
+
+	console.log(box.material.opacity = OPACITY);
+	console.log(box.material.transparent = TRANSPARENT);
+	console.log(box.material.depthTest = DEPTH_TEST);
+	console.log(box.material.alphaToCoverage = alphaToCoverage);
+
+
+
 	//const light = new THREE.DirectionalLight(0xffffff);
 	//light.intensity=2;
 	//light.position.set(1, 1, 1);
