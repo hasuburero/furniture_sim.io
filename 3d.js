@@ -56,15 +56,15 @@ function init(){
 	const alphaToCoverage = true;
 
 
-	console.log(box.material.opacity = OPACITY);
-	console.log(box.material.transparent = TRANSPARENT);
-	console.log(box.material.depthTest = DEPTH_TEST);
-	console.log(box.material.alphaToCoverage = alphaToCoverage);
+	box.material.opacity = OPACITY;
+	box.material.transparent = TRANSPARENT;
+	box.material.depthTest = DEPTH_TEST;
+	box.material.alphaToCoverage = alphaToCoverage;
 
-	console.log(box2.material.opacity = 1.0);
-	console.log(box2.material.transparent = true);
-	console.log(box2.material.depthTest = false);
-	console.log(box2.material.alphaToCoverage = true);
+	box2.material.opacity = 1.0;
+	box2.material.transparent = true;
+	box2.material.depthTest = false;
+	box2.material.alphaToCoverage = true;
 
 	scene.add(box);
 	scene.add(box2);
