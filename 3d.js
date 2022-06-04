@@ -1,5 +1,4 @@
 window.addEventListener('DOMContentLoaded', init);
-console.log(x);
 
 
 function init(){
