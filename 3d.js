@@ -26,16 +26,12 @@ function init(){
 	let aspect = width/height;
 	/////////////////////////////////////////////
 
-	const camera = new THREE.PerspectiveCamera(45, aspect);
-	camera.position.set(0, 0, 1000);
 
-	/////////////////////////////////////////////
-	const controls = new THREE.OrbitControls(camera, canvasElement)
-	controls.minDistance = 200;
-	controls.maxDistance = 1500;
-	////////////////////////////////////
 
-	const geometry = new THREE.BoxGeometry(100, 100, 100);
+	let x=5000;
+	let y=3000;
+	let z=4000;
+	const geometry = new THREE.BoxGeometry(x, y, z);
 	const material = new THREE.MeshStandardMaterial({
 		color: 0xf0f000
 	});
@@ -43,7 +39,7 @@ function init(){
 	//make box
 	//const material = new THREE.MeshNormalMaterial();
 	let box = new THREE.Mesh(geometry, material);
-	let box2= new THREE.Mesh(new THREE.BoxGeometry(50, 50, 50), new THREE.MeshStandardMaterial({
+	let box2= new THREE.Mesh(new THREE.BoxGeometry(500, 300, 400), new THREE.MeshStandardMaterial({
 		color: 0xff0000
 	}));
 
@@ -61,10 +57,18 @@ function init(){
 	box.material.depthTest = DEPTH_TEST;
 	box.material.alphaToCoverage = alphaToCoverage;
 
+	let startx=-x/2;
+	let starty=-y/2;
+	let startz=z/2;
+
 	box2.material.opacity = 1.0;
 	box2.material.transparent = true;
 	box2.material.depthTest = false;
 	box2.material.alphaToCoverage = true;
+
+	box2.position.x = startx+250;
+	box2.position.y = starty;
+	box2.position.z = startz - 200;
 
 	scene.add(box);
 	scene.add(box2);
@@ -73,6 +77,26 @@ function init(){
 	//light.intensity=2;
 	//light.position.set(1, 1, 1);
 	scene.add(light);
+
+	const camera = new THREE.PerspectiveCamera(90, aspect, 1, 50000);
+	camera.position.set(0, 0, Math.sqrt(x*x+y*y+z*z)+1000);
+	console.log(camera.position);
+
+
+	/////////////////////////////////////////////
+	let max=x;
+	if(max < y){
+		max = y;
+	}
+	else if(max < z){
+		max = z;
+	}
+	else{
+	}
+	const controls = new THREE.OrbitControls(camera, canvasElement)
+	controls.minDistance = max;
+	controls.maxDistance = 50000;
+	////////////////////////////////////
 
 	tick();
 
