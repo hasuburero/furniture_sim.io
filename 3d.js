@@ -2,7 +2,6 @@ window.addEventListener('DOMContentLoaded', init);
 
 
 function init(){
-	console.log("test");
 	const width = window.innerWidth;
 	const height = window.innerHeight-50;
 
@@ -21,6 +20,8 @@ function init(){
 
 	const scene = new THREE.Scene();
 
+	make_object(scene);
+
 	scene.background = new THREE.Color(0xfff0f0);
 	///////////////////////////////////////////////
 	let aspect = width/height;
@@ -31,15 +32,12 @@ function init(){
 	let x=5000;
 	let y=3000;
 	let z=4000;
-	const geometry = new THREE.BoxGeometry(x, y, z);
-	const material = new THREE.MeshStandardMaterial({
-		color: 0xf0f000
-	});
 	
 	//make box
-	//const material = new THREE.MeshNormalMaterial();
-	let box = new THREE.Mesh(geometry, material);
-	let box2= new THREE.Mesh(new THREE.BoxGeometry(500, 300, 400), new THREE.MeshStandardMaterial({
+	let box2_width = 2000;
+	let box2_height = 1200;
+	let box2_depth = 1700;
+	let box2= new THREE.Mesh(new THREE.BoxGeometry(box2_width, box2_height, box2_depth), new THREE.MeshStandardMaterial({
 		color: 0xff0000
 	}));
 
@@ -52,10 +50,6 @@ function init(){
 	const alphaToCoverage = true;
 
 
-	box.material.opacity = OPACITY;
-	box.material.transparent = TRANSPARENT;
-	box.material.depthTest = DEPTH_TEST;
-	box.material.alphaToCoverage = alphaToCoverage;
 
 	let startx=-x/2;
 	let starty=-y/2;
@@ -66,11 +60,11 @@ function init(){
 	box2.material.depthTest = false;
 	box2.material.alphaToCoverage = true;
 
-	box2.position.x = startx+250;
-	box2.position.y = starty;
-	box2.position.z = startz - 200;
+	box2.position.x = startx+box2_width/2;
+	box2.position.y = starty+box2_height/2;
+	box2.position.z = startz - box2_depth/2;
+	box2.rotation.y = Math.PI/2;
 
-	scene.add(box);
 	scene.add(box2);
 
 	//const light = new THREE.DirectionalLight(0xffffff);
