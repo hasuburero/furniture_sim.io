@@ -54,6 +54,7 @@ a[1].addEventListener("click", () => {
 	if(CanvasEdit.style.display == "block" && Canvas3d.style.display == "none"){
 		a[1].textContent = "編集画面";
 		Canvas3d.style.display = "block";
+		CanvasEdit.style.display = "none";
 	}
 	else{
 		a[1].textContent = "3D";

@@ -1,8 +1,9 @@
 let furniture_class = class{
-	constructor(width, height, depth){
+	constructor(width, height, depth, type){
 		this.width = width;
 		this.height = height;
 		this.depth = depth;
+		this.type = type;
 	}
 	set setwidth(width){
 		this.width = width;
