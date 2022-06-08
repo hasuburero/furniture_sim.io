@@ -21,6 +21,9 @@ function init(){
 	const scene = new THREE.Scene();
 
 	make_object(scene);
+	for(let i=0; i<furniture3d.length; ++i){
+		console.log(i);
+	}
 
 	scene.background = new THREE.Color(0xfff0f0);
 	///////////////////////////////////////////////
@@ -37,9 +40,9 @@ function init(){
 	let box2_width = 2000;
 	let box2_height = 1200;
 	let box2_depth = 1700;
-	let box2= new THREE.Mesh(new THREE.BoxGeometry(box2_width, box2_height, box2_depth), new THREE.MeshStandardMaterial({
-		color: 0xff0000
-	}));
+	//let box2= new THREE.Mesh(new THREE.BoxGeometry(box2_width, box2_height, box2_depth), new THREE.MeshStandardMaterial({
+	//	color: 0xff0000
+	//}));
 
 	//light
 	const light = new THREE.AmbientLight(0xffffff, 1.0);
@@ -55,17 +58,17 @@ function init(){
 	let starty=-y/2;
 	let startz=z/2;
 
-	box2.material.opacity = 1.0;
-	box2.material.transparent = true;
-	box2.material.depthTest = false;
-	box2.material.alphaToCoverage = true;
+	//box2.material.opacity = 1.0;
+	//box2.material.transparent = true;
+	//box2.material.depthTest = false;
+	//box2.material.alphaToCoverage = true;
 
-	box2.position.x = startx+box2_width/2;
-	box2.position.y = starty+box2_height/2;
-	box2.position.z = startz - box2_depth/2;
-	box2.rotation.y = Math.PI/2;
+	//box2.position.x = startx+box2_width/2;
+	//box2.position.y = starty+box2_height/2;
+	//box2.position.z = startz - box2_depth/2;
+	//box2.rotation.y = Math.PI/2;
 
-	scene.add(box2);
+	//scene.add(box2);
 
 	//const light = new THREE.DirectionalLight(0xffffff);
 	//light.intensity=2;
