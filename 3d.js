@@ -4,7 +4,7 @@ function init(){
 	const width = window.innerWidth;
 	const height = window.innerHeight-50;
 
-		
+	aspect = width/height;	
 	canvasElement = document.querySelector('#Canvas3d');
 	const renderer = new THREE.WebGLRenderer({
 		canvas: canvasElement,
@@ -13,8 +13,8 @@ function init(){
 		preserveDrawingBuffer: true,
 	});
 
-	renderer.setSize(width, height);
 	renderer.setPixelRatio(window.devicePixelRatio);
+	renderer.setSize(width, height);
 
 	scene.background = new THREE.Color(0xfff0f0);
 

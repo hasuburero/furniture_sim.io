@@ -55,10 +55,10 @@ let i=0;
 a[1].addEventListener("click", () => {
 	if(CanvasEdit.style.display == "block" && Canvas3d.style.display == "none"){
 		if(i%2==0){
-			furniture.push(new furniture_class(1400, 720, 550, "desk"));
-			furniture[0].setx = 0;
+			furniture.push(new furniture_class(500, 1000, 1000, "drawers"));
+			furniture[0].setx = 1000;
 			furniture[0].sety = 0;
-			furniture[0].setz = 3000;
+			furniture[0].setz = 2000;
 		}
 		make_floor();//make_floor()は間取り完成後に実行がいいかも
 		make_object();//これは家具配置関数
