@@ -14,7 +14,6 @@ CanvasEdit.style.display="block";
 CanvasAdd.style.display="none";
 CanvasSave.style.display="none";
 CanvasOpen.style.display="none";
-console.log(a[0]);
 
 
 menu.addEventListener("click", () => {
@@ -55,13 +54,13 @@ let i=0;
 a[1].addEventListener("click", () => {
 	if(CanvasEdit.style.display == "block" && Canvas3d.style.display == "none"){
 		if(i%2==0){
-			furniture.push(new furniture_class(1000, 1000, 1000, "other"));
+			furniture.push(new furniture_class(1000, 2000, 400, "desk"));
 			furniture[0].setx = 1000;
 			furniture[0].sety = 0;
 			furniture[0].setz = 2000;
 		}
-		make_floor();//make_floor()は間取り完成後に実行がいいかも
-		make_object();//これは家具配置関数
+		make_floor();	//make_floor()は間取り完成後に実行がいいかも
+		make_object();	//これは家具配置関数
 		camera_set();
 		++i;
 		a[1].textContent = "編集画面";

@@ -4,7 +4,7 @@
 ***	Designer		:蓮原裕太
 ***	Date			:2022.6.14
 ***	Purpose			:3Dモデルの作成
-***	Include			:make_object, set_material, camera_set, make_floor, make_desk, make_chair, make_bed, make_drawers, make_other
+***	Function			:make_object, set_material, camera_set, make_floor, make_desk, make_chair, make_bed, make_drawers, make_other, make_bookshelf
 ************************************************************************/
 
 /***********************************************************************
@@ -437,6 +437,96 @@ function make_other(i){
 	object.position.z = startz+furniture_depth/2+furniture_z;
 
 	furniture3d.push(object);
+	scene.add(furniture3d[i]);
+}
+
+/***********************************************************************
+*** Function Name	:make_bookshelf(i)
+***	Designer		:蓮原裕太
+*** Date			:2022.6.14
+*** Function  		:その他作成関数．objectはGroupで管理．Groupはfurniture3dに格納後sceneに追加
+*** Return 			:void
+*************************************************************************/
+function make_bookshelf(i){
+	let group = new THREE.Group();
+	let object;
+	let furniture_width = 	furniture[i].width;
+	let furniture_depth = 	furniture[i].depth;
+	let furniture_height = 	20;
+	let furniture_x = furniture[i].x;
+	let furniture_y = furniture[i].y;
+	let furniture_z = furniture[i].z;
+	let leg_width	= 50;
+	let leg_depth	= 50;
+	let leg_height 	= furniture_height;
+
+	for(let i=0; i<4; ++i){
+		object = new THREE.Mesh(new THREE.BoxGeometry(leg_width, leg_height, leg_depth), new THREE.MeshStandardMaterial({
+			color: 7734e30
+		}));
+
+		set_material(object);
+
+		switch(i){
+			//左上
+			case 0:	object.position.x = startx+(furniture_x)+leg_width/2;
+					object.position.y = starty+leg_height/2;
+					object.position.z = startz+(furniture_z)+leg_depth/2;
+					break;
+			//左下
+			case 1:	object.position.x = startx+(furniture_x)+leg_width/2;
+					object.position.y = starty+(furniture_y)+leg_height/2;
+					object.position.z = startz+(furniture_z+furniture_depth)-leg_depth;
+					break;
+			//右上
+			case 2:	object.position.x = startx+(furniture_x+furniture_width)-leg_width/2;	
+					object.position.y = starty+(furniture_y)+leg_height/2;
+					object.position.z = startz+(furniture_z)+leg_depth/2;
+					break;
+			//右下
+			case 3:	object.position.x = startx+(furniture_x+furniture_width)-leg_width/2;
+					object.position.y = starty+(furniture_y)+furniture_height/2;
+					object.position.z = startz+(furniture_z+furniture_depth)-leg_width/2;
+					break;
+		}
+		group.add(object);
+	}
+
+	for(let i=0; i<5; ++i){
+		object = new THREE.Mesh(new THREE.BoxGeometry(furniture_width-100, furniture_height, furniture_depth-100), new THREE.MeshStandardMaterial({
+			color: 7734e30
+		}));
+
+		set_material(object);
+
+		switch(i){
+			//左上
+			case 0:	object.position.x = startx+(furniture_x)+furniture_width/2;
+					object.position.y = starty-furniture_height/2+50;
+					object.position.z = startz+(furniture_z)+furniture_depth/2;
+					break;
+			//左下
+			case 1:	object.position.x = startx+(furniture_x)+furniture_width/2;
+					object.position.y = starty+((leg_height-60)/4+60)-furniture_height/2;
+					object.position.z = startz+(furniture_z)+furniture_depth/2;
+					break;
+			//右上
+			case 2:	object.position.x = startx+(furniture_x)+furniture_width/2;	
+					object.position.y = starty+((leg_height-60)/2+60)-furniture_height/2;
+					object.position.z = startz+(furniture_z)+furniture_depth/2;
+					break;
+			//右下
+			case 3:	object.position.x = startx+(furniture_x)+furniture_width)/2;
+					object.position.y = starty+((leg_height-60)*3/4+60)-furniture_height/2;
+					object.position.z = startz+(furniture_z)+furniture_depth/2;
+					break;
+			case 4:	object.position.x = startx+(furniture_x)+furniture_width/2;
+					object.position.y = starty+(leg_height)-furniture_height/2;
+					object.position.z = startz+(furniture_z)+furniture_depth/2;
+		}
+		group.add(object);
+	}
+	furniture3d.push(group);
 	scene.add(furniture3d[i]);
 }
 

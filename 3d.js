@@ -41,7 +41,6 @@ function init(){
 	//controls.minDistance = max;
 	//controls.maxDistance = 50000;
 
-	console.log("1 " + startx, starty, startz);
 	tick();
 
 	function tick(){
