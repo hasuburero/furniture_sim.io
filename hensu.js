@@ -1,31 +1,32 @@
-let furniture = []; //furniture.push()で格納，furniture.push()で削除
-let furniture3d = [];
-let x;
-let y;
-let z;
-let floor_x = 3000;
-let floor_y = 2350;
-let floor_z = 5000;
-let startx = 0;
-let starty = 0;
-let startz = 0;
-let width;
-let height;
-let depth;
-let type;
+/*************************************************************************
+***		File Name		:hensu.js
+***		Version			:v1.0
+***		Designer		:蓮原裕太	
+***		Date			:2022.6.14
+***		Purpose			:グローバル変数や配列の宣言
+*************************************************************************/
 
-const scene = new THREE.Scene();
-//camera
-let camera = new THREE.PerspectiveCamera(90, 1, 1, 50000);
-let aspect;
-let controls;
-let canvasElement;
-//furniture.push(new furniture_class(1400, 720, 550, "desk"));
-//furniture[0].setx = 0;
-//furniture[0].sety = 0;
-//furniture[0].setz = 3000;
-//furniture.push(new furniture_class(500, 500, 500, "chair"));
-//furniture[0].setx = 800;
-//furniture[0].sety = 0;
-//furniture[0].setz = 3300;
+let furniture = []; //furniture.push(new furniture_class(x, y, z, type))で格納，furniture.pop(i)で削除.
+let furniture3d = []; //furniture3d.push(object)で3dオブジェクトもしくはグループを格納．furniture.pop(i)で削除．
+let x; //家具のx座標の一時保存場
+let y; //家具のy座標の一時保存場
+let z; //家具のz座標の一時保存場
+let floor_x = 3000; //間取りのx座標の格納場所
+let floor_y = 2350; //間取りのy座標の格納場所
+let floor_z = 5000; //間取りのz座標の格納場所
+let startx = 0; //3dモデル配置時のスタート位置を決めるための変数
+let starty = 0; //3dモデル配置時のスタート位置を決めるための変数
+let startz = 0; //3dモデル配置時のスタート位置を決めるための変数
+let width; //家具の横の一時保存場
+let height; //家具の横の一時保存場
+let depth; //家具の横の一時保存場
+let type; //家具のtypeの一時保存場
+
+const scene = new THREE.Scene(); //3dモデルを格納するsceneオブジェクトの生成
+
+//以下camera用
+let camera = new THREE.PerspectiveCamera(90, 1, 1, 50000); //cameraオブジェクトの生成
+let aspect; //アス比
+let controls; //カメラコントロール用オブジェクトの生成用
+let canvasElement; //キャンバスの要素オブジェクト格納用 
 
