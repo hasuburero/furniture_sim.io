@@ -1,5 +1,8 @@
 function make_object(){
 	console.log("furniture.length = " + furniture.length);
+	if(furniture.legth == 0){
+		window.alert("no object!!");
+	}
 	for(let i=0; i<furniture.length; ++i){
 		if(furniture[i].type === "desk"){
 			make_desk(i);
