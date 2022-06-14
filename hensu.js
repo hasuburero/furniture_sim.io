@@ -1,4 +1,4 @@
-let furniture = []; //furniture.push()で格納，delete furniture[]で削除
+let furniture = []; //furniture.push()で格納，furniture.push()で削除
 let furniture3d = [];
 let x;
 let y;

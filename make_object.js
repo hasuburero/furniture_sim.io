@@ -22,6 +22,13 @@ function make_object(){
 	}
 }
 
+function set_material(object){
+	object.material.opacity = 0.5;
+	object.material.transparent = true;
+	object.material.depthTest = false;
+	object.material.alphaToCoverage = true;
+}
+
 function camera_set(){
 	camera = new THREE.PerspectiveCamera(90, aspect, 1, 50000);
 	camera.updateProjectionMatrix();
@@ -57,7 +64,7 @@ function make_floor(){
 	});
 
 	let floor = new THREE.Mesh(geometry, material);
-	floor.material.opacity = 0.5;
+	floor.material.opacity = 0.35;
 	floor.material.transparent = true;
 	floor.material.depthTest = false;
 	floor.material.alphaToCoverage = true;
@@ -84,10 +91,8 @@ function make_desk(i){
 		object = new THREE.Mesh(new THREE.BoxGeometry(leg_width, leg_height, leg_depth), new THREE.MeshStandardMaterial({
 			color: 7734e30
 		}));
-		object.material.opacity = 0.5;
-		object.material.transparent = true;
-		object.material.depthTest = false;
-		object.material.alphaToCoverage = true;
+
+		set_material(object);
 
 		switch(i){
 			//左上
@@ -117,10 +122,8 @@ function make_desk(i){
 	object = new THREE.Mesh(new THREE.BoxGeometry(furniture_width, 30, furniture_depth), new THREE.MeshStandardMaterial({
 		color: 7734e30
 	}));
-	object.material.opacity = 0.5;
-	object.material.transparent = true;
-	object.material.depthTest = false;
-	object.material.alphaToCoverage = true;
+
+	set_material(object);
 
 	object.position.x = startx+furniture_width/2+furniture_x;
 	object.position.y = starty+furniture_height-15;
@@ -152,10 +155,8 @@ function make_chair(i){
 		object = new THREE.Mesh(new THREE.BoxGeometry(leg_width, leg_height, leg_depth), new THREE.MeshStandardMaterial({
 			color: 7734e30
 		}));
-		object.material.opacity = 0.5;
-		object.material.transparent = true;
-		object.material.depthTest = false;
-		object.material.alphaToCoverage = true;
+
+		set_material(object);
 
 		switch(i){
 			//左上
@@ -185,10 +186,8 @@ function make_chair(i){
 	object = new THREE.Mesh(new THREE.CylinderGeometry(furniture_width/2, furniture_width/2, 30, 20), new THREE.MeshStandardMaterial({
 		color: 7734e30
 	}));
-	object.material.opacity = 0.5;
-	object.material.transparent = true;
-	object.material.depthTest = false;
-	object.material.alphaToCoverage = true;
+
+	set_material(object);
 
 	object.position.x = startx+furniture_width/2+furniture_x;
 	object.position.y = starty+furniture_height-15;
@@ -228,10 +227,8 @@ function make_bed(i){
 		object = new THREE.Mesh(new THREE.CylinderGeometry(leg_width/2, leg_width/2, leg_height, 30, 20), new THREE.MeshStandardMaterial({
 			color: 7734e30
 		}));
-		object.material.opacity = 0.5;
-		object.material.transparent = true;
-		object.material.depthTest = false;
-		object.material.alphaToCoverage = true;
+
+		set_material(object);
 
 		switch(i){
 			//左上
@@ -261,10 +258,8 @@ function make_bed(i){
 	object = new THREE.Mesh(new THREE.BoxGeometry(furniture_width, furniture_height-leg_height, furniture_depth), new THREE.MeshStandardMaterial({
 		color: 7734e30
 	}));
-	object.material.opacity = 0.5;
-	object.material.transparent = true;
-	object.material.depthTest = false;
-	object.material.alphaToCoverage = true;
+
+	set_material(object);
 
 	object.position.x = startx+furniture_width/2+furniture_x;
 	object.position.y = starty+furniture_height-(furniture_height-leg_height)/2;
@@ -293,10 +288,8 @@ function make_drawers(i){
 		object = new THREE.Mesh(new THREE.BoxGeometry(furniture_width, unit_height, furniture_depth), new THREE.MeshStandardMaterial({
 			color: 7734e30
 		}));
-		object.material.opacity = 0.5;
-		object.material.transparent = true;
-		object.material.depthTest = false;
-		object.material.alphaToCoverage = true;
+
+		set_material(object);
 
 		switch(i){
 			//１段目
@@ -335,10 +328,8 @@ function make_drawers(i){
 		object = new THREE.Mesh(new THREE.BoxGeometry(leg_width, 20, leg_depth), new THREE.MeshStandardMaterial({
 			color: 7734e30
 		}));
-		object.material.opacity = 0.5;
-		object.material.transparent = true;
-		object.material.depthTest = false;
-		object.material.alphaToCoverage = true;
+
+		set_material(object);
 
 		object.position.x = startx+furniture_width/2+furniture_x;
 		object.position.z = startz+furniture_depth/2+furniture_z;
@@ -365,4 +356,15 @@ function make_othre(i){
 	let furniture_y = furniture[i].y;
 	let furniture_z = furniture[i].z;
 
+	object = new THREE.Mesh(new THREE.BoxGeometry(furniture_width, furniture_height, furniture_depth), new THREE.MeshStandardMaterial({
+		color: 7734e30
+	}));
+	set_material(object);
+	object.position.x = startx+furniture_width/2+furniture_x;
+	object.position.y = starty+furniture_height/2;
+	object.position.z = startz+furniture_depth/2+furniture_z;
+
+	furniture3d.push(object);
+	scene.add(furniture3d[i]);
 }
+

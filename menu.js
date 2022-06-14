@@ -55,7 +55,7 @@ let i=0;
 a[1].addEventListener("click", () => {
 	if(CanvasEdit.style.display == "block" && Canvas3d.style.display == "none"){
 		if(i%2==0){
-			furniture.push(new furniture_class(500, 1000, 1000, "drawers"));
+			furniture.push(new furniture_class(1000, 1000, 1000, "other"));
 			furniture[0].setx = 1000;
 			furniture[0].sety = 0;
 			furniture[0].setz = 2000;
