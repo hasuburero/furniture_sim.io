@@ -458,7 +458,7 @@ function make_bookshelf(i){
 	let furniture_z = furniture[i].z;
 	let leg_width	= 50;
 	let leg_depth	= 50;
-	let leg_height 	= furniture_height;
+	let leg_height 	= furniture[i].height;
 
 	for(let i=0; i<4; ++i){
 		object = new THREE.Mesh(new THREE.BoxGeometry(leg_width, leg_height, leg_depth), new THREE.MeshStandardMaterial({
@@ -485,7 +485,7 @@ function make_bookshelf(i){
 					break;
 			//右下
 			case 3:	object.position.x = startx+(furniture_x+furniture_width)-leg_width/2;
-					object.position.y = starty+(furniture_y)+furniture_height/2;
+					object.position.y = starty+(furniture_y)+leg_height/2;
 					object.position.z = startz+(furniture_z+furniture_depth)-leg_width/2;
 					break;
 		}
@@ -516,7 +516,7 @@ function make_bookshelf(i){
 					object.position.z = startz+(furniture_z)+furniture_depth/2;
 					break;
 			//右下
-			case 3:	object.position.x = startx+(furniture_x)+furniture_width)/2;
+			case 3:	object.position.x = startx+(furniture_x)+furniture_width/2;
 					object.position.y = starty+((leg_height-60)*3/4+60)-furniture_height/2;
 					object.position.z = startz+(furniture_z)+furniture_depth/2;
 					break;
