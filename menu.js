@@ -36,7 +36,7 @@ back.addEventListener("click", () =>{
 
 //CanvasFloor
 a[0].addEventListener("click", () =>{
-	if(CanvasEdit.style.display == "block" && CanvasAdd.style.display == "none"){
+	if(CanvasEdit.style.display === "block" && CanvasAdd.style.display === "none"){
 		CanvasAdd.style.display = "block";
 		CanvasEdit.style.display = "none";
 	}
@@ -53,12 +53,6 @@ let i=0;
 
 a[1].addEventListener("click", () => {
 	if(CanvasEdit.style.display == "block" && Canvas3d.style.display == "none"){
-		if(i%2==0){
-			furniture.push(new furniture_class(1000, 2000, 400, "bookshelf"));
-			furniture[0].setx = 1000;
-			furniture[0].sety = 0;
-			furniture[0].setz = 2000;
-		}
 		make_floor();	//make_floor()は間取り完成後に実行がいいかも
 		make_object();	//これは家具配置関数
 		camera_set();
@@ -67,16 +61,43 @@ a[1].addEventListener("click", () => {
 		Canvas3d.style.display = "block";
 		CanvasEdit.style.display = "none";
 	}
-	else{
+	else if(CanvasEdit.style.display == "none" && Canvas3d.style.display == "block"){
 		console.log("before");
 		console.log(furniture);
-		furniture.pop(0);
 		delete_object();
 		console.log("after");
 		console.log(furniture);
 		a[1].textContent = "3D";
 		Canvas3d.style.display = "none";
 		CanvasEdit.style.display = "block";
+	}
+	else if(CanvasEdit.style.display == "none" && CanvasOpen.style.display == "block"){
+		CanvasOpen.style.display = "none";
+		CanvasEdit.style.display = "block";
+	}
+	else if(CanvasEdit.style.display == "none" && CanvasAdd.style.display == "block"){
+		CanvasAdd.style.display == "none";
+		CanvasEdit.style.display = "block";
+	}
+	nav.classList.remove("open-menu");
+	back.classList.remove("open");
+	menu.textContent = "menu";
+});
+
+a[4].addEventListener("click", () => {
+	if(CanvasOpen.style.display == "none"){
+		CanvasOpen.style.display = "block";
+		CanvasEdit.style.display ="none";
+		a[1].textContent = "編集画面";
+		if(window.File && window.FileReader && window.FileList && window.Blob){
+		}
+		else{
+		}
+	}
+	else{
+		CanvasOpne.style.display = "none";
+		CanvasEdit.style.display = "block";
+		a[0].textContent = "3D";
 	}
 	nav.classList.remove("open-menu");
 	back.classList.remove("open");
