@@ -177,7 +177,7 @@ function make_desk(i){
 	furniture3d.push(group);
 	scene.add(furniture3d[i]);
 	console.log("make");
-	console.log(furniture3d);
+	console.log(furniture);
 }
 
 /***********************************************************************

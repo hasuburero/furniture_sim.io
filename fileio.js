@@ -7,15 +7,10 @@
 
 
 select.addEventListener('change', function(e) {
-	console.log("1");
-	button.addEventListener('click', () =>{
-		console.log("2");
-		delete_furniture();
-		console.log("deleted");
-		console.log(furniture);
+	button.addEventListener('click', ()=>{
 		let fileData = e.target.files[0];
-		console.log(fileData);
 		let reader = new FileReader();
+		reader.readAsText(fileData);
 		reader.onerror = function(){
 			alert('ファイルの読み取りに失敗しました');
 		}
@@ -40,7 +35,9 @@ select.addEventListener('change', function(e) {
 			//	}
 			//}
 		}
-		reader.readAsText(fileData);
+		Canvas_init();
+		CanvasEdit.style.display = "block";
+		a[1].textContent = "3D";
 	});
 });
 
