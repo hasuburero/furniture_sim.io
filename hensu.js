@@ -11,9 +11,9 @@ let furniture3d = []; //furniture3d.push(object)で3dオブジェクトもしく
 let x; //家具のx座標の一時保存場
 let y; //家具のy座標の一時保存場
 let z; //家具のz座標の一時保存場
-let floor_x = 3000; //間取りのx座標の格納場所
-let floor_y = 2350; //間取りのy座標の格納場所
-let floor_z = 5000; //間取りのz座標の格納場所
+let floor_x; //間取りのx座標の格納場所
+let floor_y; //間取りのy座標の格納場所
+let floor_z; //間取りのz座標の格納場所
 let startx = 0; //3dモデル配置時のスタート位置を決めるための変数
 let starty = 0; //3dモデル配置時のスタート位置を決めるための変数
 let startz = 0; //3dモデル配置時のスタート位置を決めるための変数

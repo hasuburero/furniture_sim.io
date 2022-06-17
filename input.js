@@ -18,6 +18,7 @@ function fileinput(reader){
 			furniture[i-1].sety = parseInt(itemArr[i][5]);
 			furniture[i-1].setz = parseInt(itemArr[i][6]);
 			console.log(itemArr[i]);
+			console.log(itemArr[i][3]);
 			console.log(furniture[i-1]);
 		}
 	}

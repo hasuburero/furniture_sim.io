@@ -12,7 +12,8 @@ function delete_object(){
 
 function delete_furniture(){
 	for(let i=0; i<furniture.legth; ++i){
-		furniture.pop(i);
+		furniture.pop(0);
+		console.log("pop");
 	}
 }
 
