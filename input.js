@@ -1,6 +1,6 @@
 let result = document.getElementById('result');
 let select = document.getElementById('select');
-let button = document.getElementById('button')
+let button = document.getElementById('button');
 
 function fileinput(reader){
 	delete_furniture();
@@ -15,10 +15,14 @@ function fileinput(reader){
 			floor_z = parseInt(itemArr[i][2]);
 		}
 		else{
+			if(isNaN(parseInt(itemArr[i][0]))){
+				break;
+			}
 			furniture.push(new furniture_class(parseInt(itemArr[i][0]), parseInt(itemArr[i][1]), parseInt(itemArr[i][2]), itemArr[i][3]));
 			furniture[i-1].setx = parseInt(itemArr[i][4]);
 			furniture[i-1].sety = parseInt(itemArr[i][5]);
 			itemArr[i][6] = itemArr[i][6].replace("\r", "");
+			itemArr[i][6] = itemArr[i][6].replace("\n", "");
 			furniture[i-1].setz = parseInt(itemArr[i][6]);
 		}
 	}

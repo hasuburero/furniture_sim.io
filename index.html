@@ -14,6 +14,7 @@
 
 	<script src="https://unpkg.com/three@0.137.4/build/three.min.js"></script>
 	<script src="https://unpkg.com/three@0.137.4/examples/js/controls/OrbitControls.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script src="furniture_class.js"></script>
 	<script src="hensu.js"></script>
 
@@ -53,9 +54,8 @@
 		</font>
 	</p>
 	<p id="CanvasSave">
-		<font size=5>
-			CanvasSave
-		</font>
+		<label>File: <input type="text" id="fileName">.txt</label>
+		<input type="button" value="保存" id="saveButton"/>
 	</p>
 	<p id="CanvasOpen">
 		<input type="file" id="select" />
@@ -68,5 +68,6 @@
 <script src="delete_object.js"></script>
 <script src="menu.js"></script>
 <script src="input.js"></script>
+<script src="output.js"></script>
 <script src="fileio.js"></script>
 </html>

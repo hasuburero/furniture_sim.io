@@ -63,6 +63,7 @@ a[1].addEventListener("click", () => {
 		//furniture[0].setx = 0;
 		//furniture[0].sety = 0;
 		//furniture[0].setz = 0;
+		delete_object();
 		make_floor();	//make_floor()は間取り完成後に実行がいいかも
 		make_object();	//これは家具配置関数
 		camera_set();
@@ -73,7 +74,7 @@ a[1].addEventListener("click", () => {
 	else if(CanvasEdit.style.display === "none" && Canvas3d.style.display === "block"){
 		console.log("before");
 		console.log(furniture);
-		delete_object();
+		//delete_object();
 		console.log("after");
 		console.log(furniture);
 		a[1].textContent = "3D";
@@ -87,6 +88,20 @@ a[1].addEventListener("click", () => {
 	else if(CanvasEdit.style.display === "none" && CanvasAdd.style.display === "block"){
 		Canvas_init();
 		CanvasEdit.style.display = "block";
+	}
+	close_menu();
+});
+
+a[3].addEventListener("click", () => {
+	if(CanvasSave.style.display === "none"){
+		Canvas_init();
+		CanvasSave.style.display = "block";
+		a[1].textContent = "編集画面";
+	}
+	else{
+		Canvas_init();
+		CanvasEdit.style.display = "block";
+		a[0].textContent = "3D";
 	}
 	close_menu();
 });
