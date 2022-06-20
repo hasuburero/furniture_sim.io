@@ -1,3 +1,12 @@
+/**********************************************************************
+***     File Name               :C2_M7M8_fileio.js
+***     Version                 :v1.0
+***     Designer                :蓮原裕太
+***     Date                    :2022.6.20
+***     Purpose                 :ファイルの入出力処理
+***     Function                :select.addEventListener('change', function(e), saveButton.addEventListener('click', () => {})
+************************************************************************/
+
 //if(window.File){
 //	window.alert("all the file APIs are supported");
 //}
@@ -12,7 +21,13 @@
 //	alert("no");
 //}
 
-
+/***********************************************************************
+*** Function Name       :select.addEventListener('change', function(e))
+***     Designer        :蓮原裕太
+*** Date                :2022.6.20
+*** Function            :ファイルが選択され，完了ボタンが押されたとき，ファイルを読み取る
+*** Return              :void
+*************************************************************************/
 select.addEventListener('change', function(e) {
 	button.addEventListener('click', ()=>{
 		let fileData = e.target.files[0];
@@ -30,6 +45,13 @@ select.addEventListener('change', function(e) {
 	});
 });
 
+/***********************************************************************
+*** Function Name       :saveButton.addEventListener('click', () => {})
+***     Designer        :蓮原裕太
+*** Date                :2022.6.20
+*** Function            :ボタンが押されたとき，入力された名前を付けてファイルをダウンロードする．
+*** Return              :void
+*************************************************************************/
 saveButton.addEventListener('click', () => {
 	let blob;
 	blob = makefile(blob);

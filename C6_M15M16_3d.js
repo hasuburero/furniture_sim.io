@@ -1,3 +1,19 @@
+/**********************************************************************
+***     File Name               :C6_M15M16_3d.js
+***     Version                 :v1.0
+***     Designer                :蓮原裕太
+***     Date                    :2022.6.20
+***     Purpose                 :canvasの設定，3dモデルのアニメーションを制御．
+***     Function                :init 
+************************************************************************/
+
+/***********************************************************************
+*** Function Name       :init()
+***     Designer        :蓮原裕太
+*** Date                :2022.6.20
+*** Function            :canvasの初期化，モデルの制御．
+*** Return              :void
+*************************************************************************/
 window.addEventListener('DOMContentLoaded', init);
 
 function init(){
@@ -23,31 +39,9 @@ function init(){
 
 	scene.add(light);
 
-	//const camera = new THREE.PerspectiveCamera(90, aspect, 1, 50000);
-	//camera.position.set(0, 0, Math.sqrt(x*x+y*y+z*z)+1000);
-	//console.log(camera.position);
-
-
-	//let max=x;
-	//if(max < y){
-	//	max = y;
-	//}
-	//else if(max < z){
-	//	max = z;
-	//}
-	//else{
-	//}
-	//const controls = new THREE.OrbitControls(camera, canvasElement)
-	//controls.minDistance = max;
-	//controls.maxDistance = 50000;
-
 	tick();
 
 	function tick(){
-
-		//box.rotation.x += 0.01;
-		//box.rotation.y += 0.01;
-
 		renderer.render(scene, camera);
 		requestAnimationFrame(tick);
 	}

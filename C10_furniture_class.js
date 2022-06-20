@@ -1,3 +1,11 @@
+/**********************************************************************
+***     File Name               :furniture_class.js
+***     Version                 :v1.0
+***     Designer                :蓮原裕太
+***     Date                    :2022.6.20
+***     Purpose                 :家具情報のクラス
+***     Function                :
+************************************************************************/
 let furniture_class = class{
 	constructor(width, height, depth, type){
 		this.width = width;
