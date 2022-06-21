@@ -9,9 +9,9 @@ const CanvasAdd = document.getElementById("CanvasAdd");
 const CanvasSave = document.getElementById("CanvasSave");
 const CanvasOpen = document.getElementById("CanvasOpen");
 Canvas3d.style.display="none";
-CanvasFloor.style.display="none";
+CanvasFloor.style.display="block";
 CanvasEdit.style.display="none";
-CanvasAdd.style.display="block";
+CanvasAdd.style.display="none";
 CanvasSave.style.display="none";
 CanvasOpen.style.display="none";
 
@@ -54,15 +54,12 @@ a[0].addEventListener("click", () =>{
 		Canvas_init();
 		CanvasEdit.style.display = "block";
 	}
+	close_menu();
 });
 
 
 a[1].addEventListener("click", () => {
 	if(CanvasEdit.style.display == "block" && Canvas3d.style.display == "none"){
-		//furniture.push(new furniture_class(1000, 2000, 500, "desk"));
-		//furniture[0].setx = 0;
-		//furniture[0].sety = 0;
-		//furniture[0].setz = 0;
 		delete_object();
 		make_floor();	//make_floor()は間取り完成後に実行がいいかも
 		make_object();	//これは家具配置関数
@@ -74,7 +71,6 @@ a[1].addEventListener("click", () => {
 	else if(CanvasEdit.style.display === "none" && Canvas3d.style.display === "block"){
 		console.log("before");
 		console.log(furniture);
-		//delete_object();
 		console.log("after");
 		console.log(furniture);
 		a[1].textContent = "3D";
@@ -92,7 +88,7 @@ a[1].addEventListener("click", () => {
 	close_menu();
 });
 
-a[3].addEventListener("click", () => {
+a[2].addEventListener("click", () => {
 	if(CanvasSave.style.display === "none"){
 		Canvas_init();
 		CanvasSave.style.display = "block";
@@ -101,12 +97,12 @@ a[3].addEventListener("click", () => {
 	else{
 		Canvas_init();
 		CanvasEdit.style.display = "block";
-		a[0].textContent = "3D";
+		a[1].textContent = "3D";
 	}
 	close_menu();
 });
 
-a[4].addEventListener("click", () => {
+a[3].addEventListener("click", () => {
 	if(CanvasOpen.style.display === "none"){
 		console.log(furniture);
 		Canvas_init();
@@ -121,9 +117,22 @@ a[4].addEventListener("click", () => {
 	else{
 		Canvas_init();
 		CanvasEdit.style.display = "block";
-		a[0].textContent = "3D";
+		a[1].textContent = "3D";
 	}
 	close_menu();
 });
 
-
+a[4].addEventListener("click", () => {
+	if(CanvasFloor.style.display === "none"){
+		Canvas_init();
+		CanvasFloor.style.display = "block";
+		a[1].textContent = "編集画面";
+		window.alert("完了を押すと保存されていないデータは消えます．");
+	}
+	else{
+		Canvas_init();
+		CanvasEdit.style.display = "block";
+		a[1].textContent = "3D";
+	}
+	close_menu();
+});

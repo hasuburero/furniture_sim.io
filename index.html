@@ -17,8 +17,6 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script src="C10_furniture_class.js"></script>
 	<script src="hensu.js"></script>
-	<script src="C3_FloorInfoOpe.js"></script>
-	<script src="C4_furnitureInputOpe.js"></script>
 
 	<link rel="stylesheet" href="menu_style.css">
 	<link rel="stylesheet" href="FloorAndAdd.css">
@@ -33,36 +31,36 @@
 			<ul>
 			<li><a href="#">追加</a></li>
 			<li><a href="#">3D</a></li>
-			<li><a href="#">新規作成</a></li>
 			<li><a href="#">保存</a></li>
 			<li><a href="#">開く</a></li>
+			<li><a href="#">新規作成</a></li>
 			</ul>
 		</nav>
 		<div id="back" class="menu-background"></div>
 	</header>
 	<canvas id="Canvas3d" class="canvas"></canvas>
 	<div id="CanvasFloor">
-		<font size=5>
+		<font size=4>
 			<form>
 				<div style="text-align: left" class="floor">
 					<br>
 					<label for="Floor_x">縦:</label>
 					<br>
-					<input type="number" name="Floor_x" id="Floor_x"/>
+					<input type="number" name="Floor_x" id="Floor_z"/>
 					(mm)
 					<br><br>
 					<label for="Floor_y">横:</label>
 					<br>
-					<input type="number" name="Floor_y" id="Floor_y"/>
+					<input type="number" name="Floor_y" id="Floor_x"/>
 					(mm)
 					<br><br>
 					<label for="floor_z">高さ:</label>
 					<br>
-					<input type="number" name="Floor_z" id="Floor_z"/>
+					<input type="number" name="Floor_z" id="Floor_y"/>
 					(mm)
 				</div>
 				<div align="right" class="floor-1">
-					<input type="submit" value="完了" onclick="return FloorInfoOpe()"/>
+					<input type="button" value="完了" id="floor_button"/>
 				</div>
 			</form>
 		</font>
@@ -73,7 +71,7 @@
 		</font>
 	</p>
 	<div id="CanvasAdd">
-		<font size=5>
+		<font size=4>
 			<form>
 				<div align="right" class="add-1">
 					<select name="pull-down" id="add_type">
@@ -86,23 +84,23 @@
 					</select>
 				</div>
 				<div style="text-align: left" class="add">
-					<label for="add_width">縦:</label>
+					<label for="add_depth">縦:</label>
+					<br>
+					<input type="number" name="add_depth" id="add_depth"/>
+					(mm)
+					<br><br>
+					<label for="add_width">横:</label>
 					<br>
 					<input type="number" name="add_width" id="add_width"/>
 					(mm)
 					<br><br>
-					<label for="add_height">横:</label>
+					<label for="add_height">高さ:</label>
 					<br>
 					<input type="number" name="add_height" id="add_height"/>
 					(mm)
-					<br><br>
-					<label for="add_depth">高さ:</label>
-					<br>
-					<input type="number" name="add_depth" id="add_depth"/>
-					(mm)
 				</div>
 				<div align="right" class="add-1">
-					<input type="button" value="完了" id="addbutton" onclick="return furnitureInputOpe()"/>
+					<input type="button" value="完了" id="addbutton"/>
 				</div>
 			</form>
 		</font>
@@ -124,4 +122,6 @@
 <script src="C8_input.js"></script>
 <script src="C7_output.js"></script>
 <script src="C2_M7M8_fileio.js"></script>
+<script src="C3_FloorInfoOpe.js"></script>
+<script src="C4_furnitureInputOpe.js"></script>
 </html>

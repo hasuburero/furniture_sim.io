@@ -4,18 +4,19 @@
 ***     Designer        :森田明日香
 ***     Date            :2022.6.21
 ***     Purpose         :間取りの取得
-***     Function        :FloorInfoOpe
+***     Function        :floor_button.addEventListener('click', () =>{
 **************************************************************************/
 
 /**************************************************************************
-***     Function Name   :FloorInfoOpe()
+***     Function Name   :floor_button.addEventListener('click', () =>{
 ***     Designer        :森田明日香
 ***     Date            :2022.6.21
 ***     Function        :間取り情報を取得し変数に代入する
 ***     Return          :boolean
 **************************************************************************/
 
-function FloorInfoOpe(){
+const floor_button = document.getElementById("floor_button");
+floor_button.addEventListener('click', () =>{
     if((Floor_x.value == "") || (Floor_y.value == "") || (Floor_z.value == "")){
         alert("入力がされていません");
         return false; /*エラー処理*/
@@ -33,6 +34,8 @@ function FloorInfoOpe(){
         floor_x = parseInt(x); /*変数代入*/
         floor_y = parseInt(y);
         floor_z = parseInt(z);
-        return true; /*通常処理*/
+		delete_furniture();
+		Canvas_init();
+		CanvasEdit.style.display = "block";
     }
-}
+});

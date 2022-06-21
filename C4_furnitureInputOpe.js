@@ -15,7 +15,8 @@
 ***     Return          :boolean
 **************************************************************************/
 
-function furnitureInputOpe(){
+const addbutton = document.getElementById("addbutton");
+addbutton.addEventListener('click', () => {
     const type = document.getElementById("add_type").value; /*家具タイプ取得*/
     if((add_width.value == "") || (add_height.value == "") || (add_depth.value == "")){
         alert("入力がされていません");
@@ -37,6 +38,7 @@ function furnitureInputOpe(){
         furniture[furniture.length-1].sety = 0;
         furniture[furniture.length-1].setz = 0;
         console.log(furniture);
-        return true; /*通常処理*/
+		Canvas_init();
+		CanvasEdit.style.display = "block";
     }
-}
+});
