@@ -10,8 +10,8 @@ const CanvasSave = document.getElementById("CanvasSave");
 const CanvasOpen = document.getElementById("CanvasOpen");
 Canvas3d.style.display="none";
 CanvasFloor.style.display="none";
-CanvasEdit.style.display="block";
-CanvasAdd.style.display="none";
+CanvasEdit.style.display="none";
+CanvasAdd.style.display="block";
 CanvasSave.style.display="none";
 CanvasOpen.style.display="none";
 
