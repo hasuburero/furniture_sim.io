@@ -69,10 +69,6 @@ a[1].addEventListener("click", () => {
 		Canvas3d.style.display = "block";
 	}
 	else if(CanvasEdit.style.display === "none" && Canvas3d.style.display === "block"){
-		console.log("before");
-		console.log(furniture);
-		console.log("after");
-		console.log(furniture);
 		a[1].textContent = "3D";
 		Canvas_init();
 		CanvasEdit.style.display = "block";
