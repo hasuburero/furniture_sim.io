@@ -62,18 +62,26 @@ function set_material(object){
 function camera_set(){
 	camera = new THREE.PerspectiveCamera(90, aspect, 1, 50000);
 	camera.updateProjectionMatrix();
-	camera.position.set(0, 0, Math.sqrt(floor_x*floor_x+floor_y*floor_y+floor_z*floor_z)+1000);
+	let position = Math.sqrt(floor_x*floor_x+floor_y*floor_y+floor_z*floor_z);
+	camera.position.set(0, 0, position+1000);
 	let max=floor_x;
+	let min=floor_x;
 	if(max < floor_y){
 		max = floor_y;
 	}
 	else if(max<floor_z){
 		max = floor_z;
 	}
+	if(min > floor_y){
+		min = floor_y;
+	}
+	else if(min > floor_z){
+		min = floor_z;
+	}
 
 	controls = new THREE.OrbitControls(camera, canvasElement);
-	controls.minDistance = 0;
-	controls.maxDistance = 50000;
+	controls.minDistance = min;
+	controls.maxDistance = position+2000;
 }
 
 /***********************************************************************
