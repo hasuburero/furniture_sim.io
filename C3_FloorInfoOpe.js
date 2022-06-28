@@ -31,11 +31,23 @@ floor_button.addEventListener('click', () =>{
         alert("入力は0より大きくして下さい");
         return false; /*エラー処理*/
     }else{
-        floor_x = parseInt(x); /*変数代入*/
-        floor_y = parseInt(y);
-        floor_z = parseInt(z);
+        FloorInfoSave(x,y,z);
 		delete_furniture();
 		Canvas_init();
 		CanvasEdit.style.display = "block";
     }
 });
+
+/**************************************************************************
+***     Function Name   :FloorInfoSave(x, y, z)
+***     Designer        :森田明日香
+***     Date            :2022.6.21
+***     Function        :間取り情報変数に代入する
+***     Return          :boolean
+**************************************************************************/
+
+function FloorInfoSave(x, y, z){
+    floor_x = parseInt(x); /*変数代入*/
+    floor_y = parseInt(y);
+    floor_z = parseInt(z);
+}

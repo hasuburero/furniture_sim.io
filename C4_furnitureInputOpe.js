@@ -32,13 +32,25 @@ addbutton.addEventListener('click', () => {
         alert("入力は0より大きくして下さい");
         return false; /*エラー処理*/
     }else{
-        console.log(furniture);
-        furniture.push(new furniture_class(parseInt(depth), parseInt(height), parseInt(width), type)); /*配列格納*/
-        furniture[furniture.length-1].setx = 0; 
-        furniture[furniture.length-1].sety = 0;
-        furniture[furniture.length-1].setz = 0;
-        console.log(furniture);
+        furnitureInfoSave(type, width, height, depth);
 		Canvas_init();
 		CanvasEdit.style.display = "block";
     }
 });
+
+/**************************************************************************
+***     Function Name   :furnitureInfoSave(type, width, height, depth)
+***     Designer        :森田明日香
+***     Date            :2022.6.21
+***     Function        :家具情報を配列に格納する
+***     Return          :boolean
+**************************************************************************/
+
+function furnitureInfoSave(type, width, height, depth){
+    console.log(furniture);
+    furniture.push(new furniture_class(parseInt(depth), parseInt(height), parseInt(width), type)); /*配列格納*/
+    furniture[furniture.length-1].setx = 0; 
+    furniture[furniture.length-1].sety = 0;
+    furniture[furniture.length-1].setz = 0;
+    console.log(furniture);
+}
