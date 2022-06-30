@@ -35,6 +35,7 @@ addbutton.addEventListener('click', () => {
         furnitureInfoSave(type, width, height, depth);
 		Canvas_init();
 		CanvasEdit.style.display = "block";
+		a[1].textContent = "3D";
     }
 });
 
