@@ -35,7 +35,10 @@ floor_button.addEventListener('click', () =>{
 		delete_furniture();
 		Canvas_init();
 		CanvasEdit.style.display = "block";
-		Initialization();
+		delete_object2d();
+		make_floor2d();
+		make_object2d()
+		camera2d_set();
     }
 });
 

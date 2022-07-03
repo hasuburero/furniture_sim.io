@@ -49,9 +49,13 @@ addbutton.addEventListener('click', () => {
 
 function furnitureInfoSave(type, width, height, depth){
     console.log(furniture);
-    furniture.push(new furniture_class(parseInt(depth), parseInt(height), parseInt(width), type)); /*配列格納*/
-    furniture[furniture.length-1].setx = floor_x/2-furniture[furniture.length-1].width; 
+    furniture.push(new furniture_class(parseInt(width), parseInt(height), parseInt(depth), type)); /*配列格納*/
+    furniture[furniture.length-1].setx = 0;
     furniture[furniture.length-1].sety = 0;
-    furniture[furniture.length-1].setz = floor_z/2-furniture[furniture.length-1].depth;
+    furniture[furniture.length-1].setz = 0;
+	delete_object2d();
+	make_floor2d();
+	make_object2d();
+	camera2d_set();
     console.log(furniture);
 }

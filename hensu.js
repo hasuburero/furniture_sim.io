@@ -23,11 +23,15 @@ let height; //家具の横の一時保存場
 let depth; //家具の横の一時保存場
 let type; //家具のtypeの一時保存場
 
-const scene = new THREE.Scene(); //3dモデルを格納するsceneオブジェクトの生成
+const scene3d = new THREE.Scene(); //3dモデルを格納するsceneオブジェクトの生成
+const scene2d = new THREE.Scene(); //2dモデルを格納するsceneオブジェクトの生成
 
 //以下camera用
-let camera = new THREE.PerspectiveCamera(90, 1, 1, 50000); //cameraオブジェクトの生成
+let camera3d = new THREE.PerspectiveCamera(90, 1, 1, 50000); //cameraオブジェクトの生成
+let camera2d = new THREE.PerspectiveCamera(90, 1, 1, 50000); //cameraオブジェクトの生成
 let aspect; //アス比
-let controls; //カメラコントロール用オブジェクトの生成用
-let canvasElement; //キャンバスの要素オブジェクト格納用 
+let controls3d; //カメラコントロール用オブジェクトの生成用
+let controls2d; //カメラコントロール用オブジェクトの生成用
+let canvasElement3d; //3dキャンバスの要素オブジェクト格納用 
+let canvasElement2d; //2dキャンバスの要素オブジェクト格納用 
 
