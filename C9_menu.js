@@ -17,12 +17,14 @@ const CanvasEdit = document.getElementById("CanvasEdit");
 const CanvasAdd = document.getElementById("CanvasAdd");
 const CanvasSave = document.getElementById("CanvasSave");
 const CanvasOpen = document.getElementById("CanvasOpen");
+const app = document.getElementById("app");
 Canvas3d.style.display="none";
-CanvasFloor.style.display="none";
-CanvasEdit.style.display="block";
+CanvasFloor.style.display="block";
+CanvasEdit.style.display="none";
 CanvasAdd.style.display="none";
 CanvasSave.style.display="none";
 CanvasOpen.style.display="none";
+app.style.display = "none";
 
 /***********************************************************************
 *** Function Name		:Canvas_init

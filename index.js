@@ -16,11 +16,6 @@ let app = new PIXI.Application({
 
 document.body.appendChild(app.view);
 
-
-
-
-
-
 /***********************************************************************
 *** Function Name	:make_floor2d()
 ***	Designer		:山崎大晟
@@ -77,7 +72,6 @@ function make_object2d(){
 	}
 }
 
-
 /***********************************************************************
 *** Function Name	:make_Rect2d(i)
 ***	Designer		:山崎大晟
@@ -93,7 +87,6 @@ function make_Rect2d(i,type){
 	if(type == "bookshelf") color = 0x8e4200;
 	if(type == "drawers") color = 0x369a34;
 	if(type == "other") color = 0x000000;
-
 
 	let group = new PIXI.Graphics()
 	.beginFill(color, 0.8)
@@ -113,7 +106,6 @@ function make_Rect2d(i,type){
 	Edit(i,group);
 }
 
-
 /***********************************************************************
 *** Function Name	:delete_furniture2d(x)
 ***	Designer		:山崎大晟
@@ -127,7 +119,6 @@ function delete_furniture2d(x){
 	make_floor2d();
 	make_object2d();
 }
-
 
 /***********************************************************************
 *** Function Name	:Initialization()
