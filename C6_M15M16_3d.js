@@ -8,22 +8,22 @@
 ************************************************************************/
 
 /***********************************************************************
-*** Function Name       :init3d()
+*** Function Name       :init()
 ***     Designer        :蓮原裕太
 *** Date                :2022.6.20
 *** Function            :canvasの初期化，モデルの制御．
 *** Return              :void
 *************************************************************************/
-window.addEventListener('DOMContentLoaded', init3d);
+window.addEventListener('DOMContentLoaded', init);
 
-function init3d(){
+function init(){
 	const width = window.innerWidth;
 	const height = window.innerHeight-50;
 
 	aspect = width/height;	
-	canvasElement3d = document.querySelector('#Canvas3d');
+	canvasElement = document.querySelector('#Canvas3d');
 	const renderer = new THREE.WebGLRenderer({
-		canvas: canvasElement3d,
+		canvas: canvasElement,
 		antialias: true,
 		alpha: true,
 		preserveDrawingBuffer: true,
@@ -32,17 +32,17 @@ function init3d(){
 	renderer.setPixelRatio(window.devicePixelRatio);
 	renderer.setSize(width, height);
 
-	scene3d.background = new THREE.Color(0xfff0f0);
+	scene.background = new THREE.Color(0xfff0f0);
 
 	//light
 	const light = new THREE.AmbientLight(0xffffff, 1.0);
 
-	scene3d.add(light);
+	scene.add(light);
 
-	tick3d();
+	tick();
 
-	function tick3d(){
-		renderer.render(scene3d, camera3d);
-		requestAnimationFrame(tick3d);
+	function tick(){
+		renderer.render(scene, camera);
+		requestAnimationFrame(tick);
 	}
 }

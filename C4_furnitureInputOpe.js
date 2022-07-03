@@ -35,7 +35,6 @@ addbutton.addEventListener('click', () => {
         furnitureInfoSave(type, width, height, depth);
 		Canvas_init();
 		CanvasEdit.style.display = "block";
-		a[1].textContent = "3D";
     }
 });
 
@@ -49,13 +48,9 @@ addbutton.addEventListener('click', () => {
 
 function furnitureInfoSave(type, width, height, depth){
     console.log(furniture);
-    furniture.push(new furniture_class(parseInt(width), parseInt(height), parseInt(depth), type)); /*配列格納*/
-    furniture[furniture.length-1].setx = 0;
+    furniture.push(new furniture_class(parseInt(depth), parseInt(height), parseInt(width), type)); /*配列格納*/
+    furniture[furniture.length-1].setx = 0; 
     furniture[furniture.length-1].sety = 0;
     furniture[furniture.length-1].setz = 0;
-	delete_object2d();
-	make_floor2d();
-	make_object2d();
-	camera2d_set();
     console.log(furniture);
 }

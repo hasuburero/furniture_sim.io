@@ -79,9 +79,9 @@ function camera_set(){
 		min = floor_z;
 	}
 
-	controls3d = new THREE.OrbitControls(camera3d, canvasElement3d);
-	controls3d.minDistance = min;
-	controls3d.maxDistance = position+2000;
+	controls = new THREE.OrbitControls(camera, canvasElement);
+	controls.minDistance = min;
+	controls.maxDistance = position+2000;
 }
 
 /***********************************************************************
@@ -114,7 +114,7 @@ function make_floor(){
 	floor.material.depthTest = false;
 	floor.material.alphaToCoverage = true;
 
-	scene3d.add(floor);
+	scene.add(floor);
 }
 
 /***********************************************************************
@@ -183,7 +183,7 @@ function make_desk(i){
 
 	group.add(object);
 	furniture3d.push(group);
-	scene3d.add(furniture3d[i]);
+	scene.add(furniture3d[i]);
 	console.log("make");
 	console.log(furniture);
 }
@@ -255,7 +255,7 @@ function make_chair(i){
 
 	group.add(object);
 	furniture3d.push(group);
-	scene3d.add(furniture3d[i]);
+	scene.add(furniture3d[i]);
 }
 
 /***********************************************************************
@@ -334,7 +334,7 @@ function make_bed(i){
 
 	group.add(object);
 	furniture3d.push(group);
-	scene3d.add(furniture3d[i]);
+	scene.add(furniture3d[i]);
 }
 
 /***********************************************************************
@@ -417,7 +417,7 @@ function make_drawers(i){
 		group.add(object);
 	}
 	furniture3d.push(group);
-	scene3d.add(furniture3d[i]);
+	scene.add(furniture3d[i]);
 }
 
 /***********************************************************************
@@ -446,7 +446,7 @@ function make_other(i){
 	object.position.z = startz+furniture_depth/2+furniture_z;
 
 	furniture3d.push(object);
-	scene3d.add(furniture3d[i]);
+	scene.add(furniture3d[i]);
 }
 
 /***********************************************************************
@@ -536,5 +536,5 @@ function make_bookshelf(i){
 		group.add(object);
 	}
 	furniture3d.push(group);
-	scene3d.add(furniture3d[i]);
+	scene.add(furniture3d[i]);
 }
