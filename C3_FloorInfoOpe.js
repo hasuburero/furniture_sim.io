@@ -35,6 +35,7 @@ floor_button.addEventListener('click', () =>{
 		delete_furniture();
 		Canvas_init();
 		CanvasEdit.style.display = "block";
+		Initialization();
     }
 });
 
