@@ -1,5 +1,4 @@
 
-let sfa = 10;
 furniture.push(new furniture_class(100, 200, 50, "bed"))
 furniture[0].x = 0,furniture[0].y = 0, furniture[0].z = 0;
 furniture.push(new furniture_class(150, 50, 100, "desk"))

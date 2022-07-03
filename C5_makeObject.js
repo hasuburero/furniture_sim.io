@@ -1,5 +1,5 @@
 /**********************************************************************
-***	File Name		:index.js
+***	File Name		:C5_makeObject.js
 ***	Version			:v1.0
 ***	Designer		:山崎大晟
 ***	Date			:2022.
@@ -10,16 +10,14 @@
 let app = new PIXI.Application({
     width: floor_x+1000,
     height: floor_y+1000,
+	view:	document.getElementById('CanvasEdit'),
+	resolution: window.devicePixelRatio || 1,
+	autoResize: true,
     backgroundColor: 0xffffff,
     autoDensity: true,
 });
 
 document.body.appendChild(app.view);
-
-
-
-
-
 
 /***********************************************************************
 *** Function Name	:make_floor2d()
@@ -29,7 +27,6 @@ document.body.appendChild(app.view);
 *** Return 			:void
 *************************************************************************/
 function make_floor2d(){
-		
 	let floor2d = new PIXI.Graphics()
 
 	.beginFill(0xd6f636,0.4)
