@@ -4,7 +4,7 @@
 ***	Designer		:蓮原裕太
 ***	Date			:2022.6.28
 ***	Purpose			:3Dモデルの作成
-***	Function			:make_object, set_material, camera_set, make_floor, make_desk, make_chair, make_bed, make_drawers, make_other, make_bookshelf
+***	Function			:make_object, set_material, camera_set, make_floor, make_desk, make_chair, make_bed, make_drawers, make_other, make_bookshelf, init3d
 ************************************************************************/
 
 /***********************************************************************
@@ -15,7 +15,6 @@
 *** Return 			:void
 *************************************************************************/
 function make_object(){
-	console.log("furniture.length = " + furniture.length);
 	for(let i=0; i<furniture.length; ++i){
 		if(furniture[i].type === "desk"){
 			make_desk(i);
@@ -184,8 +183,6 @@ function make_desk(i){
 	group.add(object);
 	furniture3d.push(group);
 	scene.add(furniture3d[i]);
-	console.log("make");
-	console.log(furniture);
 }
 
 /***********************************************************************
@@ -538,3 +535,18 @@ function make_bookshelf(i){
 	furniture3d.push(group);
 	scene.add(furniture3d[i]);
 }
+
+/***********************************************************************
+*** Function Name	:init3d()
+***	Designer		:蓮原裕太
+*** Date			:2022.6.14
+*** Function  		:3dモデルの初期化関数
+*** Return 			:void
+*************************************************************************/
+function init3d(){
+	delete_object();
+	make_floor();
+	make_object();
+	camera_set();
+}
+

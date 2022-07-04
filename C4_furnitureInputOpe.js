@@ -33,6 +33,7 @@ addbutton.addEventListener('click', () => {
         return false; /*エラー処理*/
     }else{
         furnitureInfoSave(type, width, height, depth);
+		init3d();
 		Canvas_init();
 		Canvas3d.style.display = "block";
     }

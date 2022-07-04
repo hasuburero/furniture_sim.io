@@ -42,4 +42,5 @@ function fileinput(reader){
 			furniture[i-1].setz = parseInt(itemArr[i][6]);
 		}
 	}
+	init3d();
 }
