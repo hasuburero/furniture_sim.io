@@ -48,7 +48,7 @@ addbutton.addEventListener('click', () => {
 **************************************************************************/
 
 function furnitureInfoSave(type, width, height, depth){
-    furniture.push(new furniture_class(parseInt(depth), parseInt(height), parseInt(width), type)); /*配列格納*/
+    furniture.push(new furniture_class(parseInt(width), parseInt(height), parseInt(depth), type)); /*配列格納*/
     furniture[furniture.length-1].setx = 0; 
     furniture[furniture.length-1].sety = 0;
     furniture[furniture.length-1].setz = 0;
