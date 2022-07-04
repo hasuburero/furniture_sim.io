@@ -34,7 +34,7 @@ addbutton.addEventListener('click', () => {
     }else{
         furnitureInfoSave(type, width, height, depth);
 		Canvas_init();
-		CanvasEdit.style.display = "block";
+		Canvas3d.style.display = "block";
     }
 });
 
@@ -47,10 +47,8 @@ addbutton.addEventListener('click', () => {
 **************************************************************************/
 
 function furnitureInfoSave(type, width, height, depth){
-    console.log(furniture);
     furniture.push(new furniture_class(parseInt(depth), parseInt(height), parseInt(width), type)); /*配列格納*/
     furniture[furniture.length-1].setx = 0; 
     furniture[furniture.length-1].sety = 0;
     furniture[furniture.length-1].setz = 0;
-    console.log(furniture);
 }

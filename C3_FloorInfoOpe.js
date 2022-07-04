@@ -34,7 +34,7 @@ floor_button.addEventListener('click', () =>{
         FloorInfoSave(x,y,z);
 		delete_furniture();
 		Canvas_init();
-		CanvasEdit.style.display = "block";
+		Canvas3d.style.display = "block";
     }
 });
 
