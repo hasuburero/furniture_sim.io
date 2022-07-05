@@ -34,13 +34,10 @@ function init(){
 
 	scene.background = new THREE.Color(0xfff0f0);
 
-	//light
 	const light = new THREE.AmbientLight(0xffffff, 1.0);
-
 	scene.add(light);
 
 	tick();
-
 	function tick(){
 		renderer.render(scene, camera);
 		requestAnimationFrame(tick);

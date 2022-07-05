@@ -110,9 +110,9 @@ a[1].addEventListener("click", () => {
 		Canvas3d.style.display = "block";
 	}
 	else if(CanvasFloor.style.display === "block"){
-		if(flag){
+		if(flag==1){
 			window.alert("間取りを入力してください");
-			flag = false;
+			flag = 0;
 		}
 		else{
 			Canvas_init();

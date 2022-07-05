@@ -549,4 +549,3 @@ function init3d(){
 	make_object();
 	camera_set();
 }
-
