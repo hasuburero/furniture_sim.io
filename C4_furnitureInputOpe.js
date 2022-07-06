@@ -33,9 +33,13 @@ addbutton.addEventListener('click', () => {
         return false; /*エラー処理*/
     }else{
         furnitureInfoSave(type, width, height, depth);
+<<<<<<< HEAD
 		Initialization();
+=======
+		init3d();
+>>>>>>> f795a048a6e5c86b71de2b05882bd48a5fcdc289
 		Canvas_init();
-		CanvasEdit.style.display = "block";
+		Canvas3d.style.display = "block";
     }
 });
 
@@ -48,10 +52,8 @@ addbutton.addEventListener('click', () => {
 **************************************************************************/
 
 function furnitureInfoSave(type, width, height, depth){
-    console.log(furniture);
-    furniture.push(new furniture_class(parseInt(depth), parseInt(height), parseInt(width), type)); /*配列格納*/
+    furniture.push(new furniture_class(parseInt(width), parseInt(height), parseInt(depth), type)); /*配列格納*/
     furniture[furniture.length-1].setx = 0; 
     furniture[furniture.length-1].sety = 0;
     furniture[furniture.length-1].setz = 0;
-    console.log(furniture);
 }

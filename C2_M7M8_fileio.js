@@ -7,20 +7,6 @@
 ***     Function                :select.addEventListener('change', function(e), saveButton.addEventListener('click', () => {})
 ************************************************************************/
 
-//if(window.File){
-//	window.alert("all the file APIs are supported");
-//}
-//else{
-//	window.alert("no");
-//}
-
-//if(typeof Blob !== "undefined"){
-//	alert("ok");
-//}
-//else{
-//	alert("no");
-//}
-
 /***********************************************************************
 *** Function Name       :select.addEventListener('change', function(e))
 ***     Designer        :蓮原裕太
@@ -40,8 +26,7 @@ select.addEventListener('change', function(e) {
 			fileinput(reader);
 		}
 		Canvas_init();
-		CanvasEdit.style.display = "block";
-		a[1].textContent = "3D";
+		Canvas3d.style.display = "block";
 	});
 });
 
@@ -61,7 +46,7 @@ saveButton.addEventListener('click', () => {
 	let filename = nameText.value + ".txt";
 	link.download = filename;
 	link.click();
+	init3d();
 	Canvas_init();
-	CanvasEdit.style.display = "block";
-	a[1].textContent = "3D";
+	Canvas3d.style.display = "block";
 });
