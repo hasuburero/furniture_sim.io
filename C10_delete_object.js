@@ -15,6 +15,7 @@
 *** Return              :void
 *************************************************************************/
 function delete_object(){
+	scene.remove(floor3d);
 	for(let i=0; i<furniture3d.length; ++i){
 		scene.remove(furniture3d[i]);
 	}

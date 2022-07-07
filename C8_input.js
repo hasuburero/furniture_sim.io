@@ -25,6 +25,12 @@ function fileinput(reader){
 	for(let i=0; i<lineArr.length; ++i){
 		itemArr[i] = lineArr[i].split(",");
 		if(i==0){
+			let x = parseInt(itemArr[i][0]);
+			let y = parseInt(itemArr[i][1]);
+			let z = parseInt(itemArr[i][2]);
+			if(x>1000 || y>1000 || z>1000){
+				return 1;
+			}
 			floor_x = parseInt(itemArr[i][0]);
 			floor_y = parseInt(itemArr[i][1]);
 			itemArr[i][2] = itemArr[i][2].replace("\r", "");

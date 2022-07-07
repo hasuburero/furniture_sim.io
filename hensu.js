@@ -7,8 +7,8 @@
 *************************************************************************/
 
 let furniture = []; //furniture.push(new furniture_class(x, y, z, type))で格納，furniture.pop(i)で削除.
-let furniture2d = [];
 let furniture3d = []; //furniture3d.push(object)で3dオブジェクトもしくはグループを格納．furniture.pop(i)で削除．
+let floor3d;
 let x; //家具のx座標の一時保存場
 let y; //家具のy座標の一時保存場
 let z; //家具のz座標の一時保存場

@@ -113,7 +113,8 @@ function make_floor(){
 	floor.material.depthTest = false;
 	floor.material.alphaToCoverage = true;
 
-	scene.add(floor);
+	floor3d = floor
+	scene.add(floor3d);
 }
 
 /***********************************************************************
