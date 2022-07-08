@@ -59,10 +59,7 @@ function set_material(object){
 *** Return 			:void
 *************************************************************************/
 function camera_set(){
-	camera = new THREE.PerspectiveCamera(90, aspect, 1, 50000);
-	camera.updateProjectionMatrix();
 	let position = Math.sqrt(floor_x*floor_x+floor_y*floor_y+floor_z*floor_z);
-	camera.position.set(0, 0, position+1000);
 	let max=floor_x;
 	let min=floor_x;
 	if(max < floor_y){
@@ -78,9 +75,14 @@ function camera_set(){
 		min = floor_z;
 	}
 
+	camera = new THREE.PerspectiveCamera(90, aspect, 1, position+max/2+200);
+	camera.updateProjectionMatrix();
+	camera.position.set(0, 0, position+100);
+
 	controls = new THREE.OrbitControls(camera, canvasElement);
 	controls.minDistance = min;
-	controls.maxDistance = position+2000;
+	controls.maxDistance = position+200;
+	console.log("position = " + position);
 }
 
 /***********************************************************************
@@ -127,9 +129,9 @@ function make_floor(){
 function make_desk(i){
 	let group = new THREE.Group();
 	let object;
-	let leg_width	= 50;
-	let leg_height	= furniture[i].height - 30;
-	let leg_depth	= 50;
+	let leg_width	= 5;
+	let leg_height	= furniture[i].height - 2;
+	let leg_depth	= 5;
 
 	let furniture_width = 	furniture[i].width;
 	let furniture_depth = 	furniture[i].depth;
@@ -171,14 +173,14 @@ function make_desk(i){
 		group.add(object);
 	}
 
-	object = new THREE.Mesh(new THREE.BoxGeometry(furniture_width, 30, furniture_depth), new THREE.MeshStandardMaterial({
+	object = new THREE.Mesh(new THREE.BoxGeometry(furniture_width, 3, furniture_depth), new THREE.MeshStandardMaterial({
 		color: 7734e30
 	}));
 
 	set_material(object);
 
 	object.position.x = startx+furniture_width/2+furniture_x;
-	object.position.y = starty+furniture_height-15;
+	object.position.y = starty+furniture_height-1;
 	object.position.z = startz+furniture_depth/2+furniture_z;
 
 	group.add(object);
@@ -196,9 +198,9 @@ function make_desk(i){
 function make_chair(i){
 	let group = new THREE.Group();
 	let object;
-	let leg_width	= 50;
-	let leg_height	= furniture[i].height - 30;
-	let leg_depth	= 50;
+	let leg_width	= 5;
+	let leg_height	= furniture[i].height - 3;
+	let leg_depth	= 5;
 
 	let furniture_width = 	furniture[i].width;
 	let furniture_depth = 	furniture[i].depth;
@@ -207,7 +209,7 @@ function make_chair(i){
 	let furniture_y = furniture[i].y;
 	let furniture_z = furniture[i].z;
 
-	let offset = 20;
+	let offset = 2;
 
 	for(let i=0; i<4; ++i){
 		object = new THREE.Mesh(new THREE.BoxGeometry(leg_width, leg_height, leg_depth), new THREE.MeshStandardMaterial({
@@ -241,14 +243,14 @@ function make_chair(i){
 		group.add(object);
 	}
 
-	object = new THREE.Mesh(new THREE.BoxGeometry(furniture_width, 30, furniture_depth), new THREE.MeshStandardMaterial({
+	object = new THREE.Mesh(new THREE.BoxGeometry(furniture_width, 3, furniture_depth), new THREE.MeshStandardMaterial({
 		color: 7734e30
 	}));
 
 	set_material(object);
 
 	object.position.x = startx+furniture_width/2+furniture_x;
-	object.position.y = starty+furniture_height-15;
+	object.position.y = starty+furniture_height-2;
 	object.position.z = startz+furniture_depth/2+furniture_z;
 
 	group.add(object);
@@ -272,20 +274,20 @@ function make_bed(i){
 	let furniture_x = furniture[i].x;
 	let furniture_y = furniture[i].y;
 	let furniture_z = furniture[i].z;
-	let leg_width	= 100;
-	let leg_depth	= 100;
+	let leg_width	= 10;
+	let leg_depth	= 10;
 	let leg_height;
-	if(furniture_height < 100){
+	if(furniture_height < 10){
 		leg_height	= 0;
 	}
-	else if(furniture_height < 200){
-		leg_height	= 50;
+	else if(furniture_height < 20){
+		leg_height	= 5;
 	}
-	else if(furniture_height < 250){
-		leg_height 	= 100;
+	else if(furniture_height < 25){
+		leg_height 	= 10;
 	}
 	else{
-		leg_height 	= 200;
+		leg_height 	= 20;
 	}
 
 	for(let i=0; i<4; ++i){
@@ -351,10 +353,10 @@ function make_drawers(i){
 	let furniture_x = furniture[i].x;
 	let furniture_y = furniture[i].y;
 	let furniture_z = furniture[i].z;
-	let leg_width	= furniture_width - 20;
-	let leg_depth	= furniture_depth - 20;
-	let leg_height	= 50;
-	let unit_height = (furniture_height - leg_height - 40)/3;
+	let leg_width	= furniture_width - 2;
+	let leg_depth	= furniture_depth - 2;
+	let leg_height	= 5;
+	let unit_height = (furniture_height - leg_height - 4)/3;
 
 	for(let i=0; i<3; ++i){
 		object = new THREE.Mesh(new THREE.BoxGeometry(furniture_width, unit_height, furniture_depth), new THREE.MeshStandardMaterial({
@@ -371,12 +373,12 @@ function make_drawers(i){
 					break;
 			//２段目
 			case 1:	object.position.x = startx+(furniture_x)+furniture_width/2;
-					object.position.y = starty+leg_height+unit_height+20+unit_height/2;
+					object.position.y = starty+leg_height+unit_height+2+unit_height/2;
 					object.position.z = startz+(furniture_z)+furniture_depth/2;
 					break;
 			//３段目
 			case 2:	object.position.x = startx+(furniture_x)+furniture_width/2;	
-					object.position.y = starty+(furniture_y)+leg_height+unit_height+20+unit_height+20+unit_height/2;
+					object.position.y = starty+(furniture_y)+leg_height+unit_height+2+unit_height+2+unit_height/2;
 					object.position.z = startz+(furniture_z)+furniture_depth/2;
 					break;
 		}
@@ -397,7 +399,7 @@ function make_drawers(i){
 	group.add(object);
 
 	for(let i=0; i<2; ++i){
-		object = new THREE.Mesh(new THREE.BoxGeometry(leg_width, 20, leg_depth), new THREE.MeshStandardMaterial({
+		object = new THREE.Mesh(new THREE.BoxGeometry(leg_width, 2, leg_depth), new THREE.MeshStandardMaterial({
 			color: 7734e30
 		}));
 
@@ -406,9 +408,9 @@ function make_drawers(i){
 		object.position.x = startx+furniture_width/2+furniture_x;
 		object.position.z = startz+furniture_depth/2+furniture_z;
 		switch(i){
-			case 0:	object.position.y = starty+leg_height+unit_height+20/2;
+			case 0:	object.position.y = starty+leg_height+unit_height+2/2;
 					break;
-			case 1:	object.position.y = starty+leg_height+unit_height+20+unit_height+10/2;
+			case 1:	object.position.y = starty+leg_height+unit_height+2+unit_height+1/2;
 					break;
 		}
 
@@ -459,12 +461,12 @@ function make_bookshelf(i){
 	let object;
 	let furniture_width = 	furniture[i].width;
 	let furniture_depth = 	furniture[i].depth;
-	let furniture_height = 	20;
+	let furniture_height = 	2;
 	let furniture_x = furniture[i].x;
 	let furniture_y = furniture[i].y;
 	let furniture_z = furniture[i].z;
-	let leg_width	= 50;
-	let leg_depth	= 50;
+	let leg_width	= 5;
+	let leg_depth	= 5;
 	let leg_height 	= furniture[i].height;
 
 	for(let i=0; i<4; ++i){
@@ -500,7 +502,7 @@ function make_bookshelf(i){
 	}
 
 	for(let i=0; i<5; ++i){
-		object = new THREE.Mesh(new THREE.BoxGeometry(furniture_width-100, furniture_height, furniture_depth-100), new THREE.MeshStandardMaterial({
+		object = new THREE.Mesh(new THREE.BoxGeometry(furniture_width-10, furniture_height, furniture_depth-10), new THREE.MeshStandardMaterial({
 			color: 7734e30
 		}));
 
@@ -509,22 +511,22 @@ function make_bookshelf(i){
 		switch(i){
 			//左上
 			case 0:	object.position.x = startx+(furniture_x)+furniture_width/2;
-					object.position.y = starty-furniture_height/2+50;
+					object.position.y = starty-furniture_height/2+5;
 					object.position.z = startz+(furniture_z)+furniture_depth/2;
 					break;
 			//左下
 			case 1:	object.position.x = startx+(furniture_x)+furniture_width/2;
-					object.position.y = starty+((leg_height-60)/4+60)-furniture_height/2;
+					object.position.y = starty+((leg_height-6)/4+6)-furniture_height/2;
 					object.position.z = startz+(furniture_z)+furniture_depth/2;
 					break;
 			//右上
 			case 2:	object.position.x = startx+(furniture_x)+furniture_width/2;	
-					object.position.y = starty+((leg_height-60)/2+60)-furniture_height/2;
+					object.position.y = starty+((leg_height-6)/2+6)-furniture_height/2;
 					object.position.z = startz+(furniture_z)+furniture_depth/2;
 					break;
 			//右下
 			case 3:	object.position.x = startx+(furniture_x)+furniture_width/2;
-					object.position.y = starty+((leg_height-60)*3/4+60)-furniture_height/2;
+					object.position.y = starty+((leg_height-6)*3/4+6)-furniture_height/2;
 					object.position.z = startz+(furniture_z)+furniture_depth/2;
 					break;
 			case 4:	object.position.x = startx+(furniture_x)+furniture_width/2;
