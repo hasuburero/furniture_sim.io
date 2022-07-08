@@ -27,20 +27,27 @@ function fileinput(reader){
 		if(i==0){
 			let x = parseInt(itemArr[i][0]);
 			let y = parseInt(itemArr[i][1]);
+			itemArr[i][2] = itemArr[i][2].replace("\r", "");
 			let z = parseInt(itemArr[i][2]);
 			if(x>1000 || y>1000 || z>1000){
+				window.alert("不正な間取り情報のため開けません");
 				return 1;
 			}
-			floor_x = parseInt(itemArr[i][0]);
-			floor_y = parseInt(itemArr[i][1]);
-			itemArr[i][2] = itemArr[i][2].replace("\r", "");
-			floor_z = parseInt(itemArr[i][2]);
+			floor_x = x;
+			floor_y = y;
+			floor_z = z;
 		}
 		else{
 			if(isNaN(parseInt(itemArr[i][0]))){
 				break;
 			}
-			furniture.push(new furniture_class(parseInt(itemArr[i][0]), parseInt(itemArr[i][1]), parseInt(itemArr[i][2]), itemArr[i][3]));
+			let width 	= parseInt(itemArr[i][0]);
+			let height 	= parseInt(itemArr[i][1]);
+			let depth 	= parseInt(itemArr[i][2]);
+			if(width>1000 | height>1000 | depth>1000){
+				break;
+			}
+			furniture.push(new furniture_class(width, height, depth, itemArr[i][3]));
 			furniture[i-1].setx = parseInt(itemArr[i][4]);
 			furniture[i-1].sety = parseInt(itemArr[i][5]);
 			itemArr[i][6] = itemArr[i][6].replace("\r", "");
@@ -49,4 +56,6 @@ function fileinput(reader){
 		}
 	}
 	init3d();
+	Canvas_init();
+	Canvas3d.style.display = "block";
 }

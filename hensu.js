@@ -22,6 +22,7 @@ let width; //家具の横の一時保存場
 let height; //家具の横の一時保存場
 let depth; //家具の横の一時保存場
 let type; //家具のtypeの一時保存場
+let file;
 
 const scene = new THREE.Scene(); //3dモデルを格納するsceneオブジェクトの生成
 

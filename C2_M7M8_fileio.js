@@ -15,19 +15,19 @@
 *** Return              :void
 *************************************************************************/
 select.addEventListener('change', function(e) {
-	button.addEventListener('click', ()=>{
-		let fileData = e.target.files[0];
-		let reader = new FileReader();
-		reader.readAsText(fileData);
-		reader.onerror = function(){
-			alert('ファイルの読み取りに失敗しました');
-		}
-		reader.onload = function(){
-			fileinput(reader);
-		}
-		Canvas_init();
-		Canvas3d.style.display = "block";
-	});
+	file = e;
+});
+
+button.addEventListener('click', ()=>{
+	let fileData = file.target.files[0];
+	let reader = new FileReader();
+	reader.readAsText(fileData);
+	reader.onerror = function(){
+		alert('ファイルの読み取りに失敗しました');
+	}
+	reader.onload = function(){
+		fileinput(reader);
+	}
 });
 
 /***********************************************************************

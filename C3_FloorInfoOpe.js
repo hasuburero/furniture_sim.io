@@ -24,8 +24,8 @@ floor_button.addEventListener('click', () =>{
     const x = document.getElementById("Floor_x").value; /*間取り情報取得*/
     const y = document.getElementById("Floor_y").value;
     const z = document.getElementById("Floor_z").value
-    if((x>100000) || (y>100000) || (z>100000)){
-        alert("入力は100000以下にして下さい");
+    if((x>1000) || (y>1000) || (z>1000)){
+        alert("入力は1000以下にして下さい");
         return false; /*エラー処理*/
     }else if((x<=0) || (y<=0) || (z<=0)){
         alert("入力は0より大きくして下さい");

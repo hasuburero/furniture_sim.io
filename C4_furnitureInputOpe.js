@@ -26,7 +26,7 @@ addbutton.addEventListener('click', () => {
     const height = document.getElementById("add_height").value;
     const depth = document.getElementById("add_depth").value
     if((width>100000) || (height>100000) || (depth>100000)){
-        alert("入力は100000以下にして下さい");
+        alert("入力は1000以下にして下さい");
         return false; /*エラー処理*/
     }else if((width<=0) || (height<=0) || (depth<=0)){
         alert("入力は0より大きくして下さい");
