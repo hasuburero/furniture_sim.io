@@ -24,4 +24,3 @@ function delete_object(){
         furniture3d.pop(0);
     }
 }
-~                                                                           ~                                                                           ~
