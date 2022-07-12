@@ -1,7 +1,7 @@
 /**********************************************************************
 ***     File Name               :C7_output.js
 ***     Version                 :v1.0
-***     Designer                :蓮原裕太
+***     Designer                :目黒風流人
 ***     Date                    :2022.6.20
 ***     Purpose                 :保存用ファイルの作成
 ***     Function                :makefile()
@@ -11,7 +11,7 @@ let saveButton = document.getElementById('saveButton');
 
 /***********************************************************************
 *** Function Name       :make_object()
-***     Designer        :蓮原裕太
+*** Designer　　        :目黒風流人
 *** Date                :2022.6.14
 *** Function            :保存用ファイルの作成
 *** Return              :blob

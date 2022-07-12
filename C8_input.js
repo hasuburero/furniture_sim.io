@@ -1,7 +1,7 @@
 /**********************************************************************
 ***     File Name               :C8_input.js
 ***     Version                 :v1.0
-***     Designer                :蓮原裕太
+***     Designer                :山崎大晟
 ***     Date                    :2022.6.20
 ***     Purpose                 :入力ファイルの内容を格納
 ***     Function                :fileinput()
@@ -13,7 +13,7 @@ let button = document.getElementById('button');
 
 /***********************************************************************
 *** Function Name       :fileinput()
-***     Designer        :蓮原裕太
+*** Designer        　　:山崎大晟
 *** Date                :2022.6.14
 *** Function            :入力ファイルの内容を格納する．ファイル末尾に"\n"の有無で１ループ無駄に回る．isNaNで検知．
 *** Return              :void
