@@ -438,9 +438,13 @@ function make_other(i){
 	let furniture_z = furniture[i].z;
 
 	object = new THREE.Mesh(new THREE.BoxGeometry(furniture_width, furniture_height, furniture_depth), new THREE.MeshStandardMaterial({
-		color: 7734e30
+		//color: 7734e30
+		color: 0xf0f000
 	}));
-	set_material(object);
+	object.material.opacity = 0.4;
+	object.material.transparent = true;
+	object.material.depthTest = false;
+	object.material.alphaToCoverage = true;
 	object.position.x = startx+furniture_width/2+furniture_x;
 	object.position.y = starty+furniture_height/2;
 	object.position.z = startz+furniture_depth/2+furniture_z;
@@ -479,7 +483,7 @@ function make_bookshelf(i){
 		switch(i){
 			//左上
 			case 0:	object.position.x = startx+(furniture_x)+leg_width/2;
-					object.position.y = starty+leg_height/2;
+					object.position.y = starty+leg_height/2+furniture_y;
 					object.position.z = startz+(furniture_z)+leg_depth/2;
 					break;
 			//左下
@@ -511,26 +515,26 @@ function make_bookshelf(i){
 		switch(i){
 			//左上
 			case 0:	object.position.x = startx+(furniture_x)+furniture_width/2;
-					object.position.y = starty-furniture_height/2+5;
+					object.position.y = starty-furniture_height/2+5+furniture_y;
 					object.position.z = startz+(furniture_z)+furniture_depth/2;
 					break;
 			//左下
 			case 1:	object.position.x = startx+(furniture_x)+furniture_width/2;
-					object.position.y = starty+((leg_height-6)/4+6)-furniture_height/2;
+					object.position.y = starty+((leg_height-6)/4+6)-furniture_height/2+furniture_y;
 					object.position.z = startz+(furniture_z)+furniture_depth/2;
 					break;
 			//右上
 			case 2:	object.position.x = startx+(furniture_x)+furniture_width/2;	
-					object.position.y = starty+((leg_height-6)/2+6)-furniture_height/2;
+					object.position.y = starty+((leg_height-6)/2+6)-furniture_height/2+furniture_y;
 					object.position.z = startz+(furniture_z)+furniture_depth/2;
 					break;
 			//右下
 			case 3:	object.position.x = startx+(furniture_x)+furniture_width/2;
-					object.position.y = starty+((leg_height-6)*3/4+6)-furniture_height/2;
+					object.position.y = starty+((leg_height-6)*3/4+6)-furniture_height/2+furniture_y;
 					object.position.z = startz+(furniture_z)+furniture_depth/2;
 					break;
 			case 4:	object.position.x = startx+(furniture_x)+furniture_width/2;
-					object.position.y = starty+(leg_height)-furniture_height/2;
+					object.position.y = starty+(leg_height)-furniture_height/2+furniture_y;
 					object.position.z = startz+(furniture_z)+furniture_depth/2;
 		}
 		group.add(object);
