@@ -1,19 +1,3 @@
-/**********************************************************************
-***	File Name		:make_object.js
-***	Version			:v1.1
-***	Designer		:蓮原裕太
-***	Date			:2022.6.28
-***	Purpose			:3Dモデルの作成
-***	Function			:make_object, set_material, camera_set, make_floor, make_desk, make_chair, make_bed, make_drawers, make_other, make_bookshelf, init3d
-************************************************************************/
-
-/***********************************************************************
-*** Function Name	:make_object()
-***	Designer		:蓮原裕太
-*** Date			:2022.6.14
-*** Function  		:3dモデル作成のために最初に呼び出される関数．配列furnitureのtypeによって処理を分岐させる．
-*** Return 			:void
-*************************************************************************/
 function make_object(){
 	for(let i=0; i<furniture.length; ++i){
 		if(furniture[i].type === "desk"){
@@ -37,13 +21,6 @@ function make_object(){
 	}
 }
 
-/***********************************************************************
-*** Function Name	:set_material(object)
-***	Designer		:蓮原裕太
-*** Date			:2022.6.14
-*** Function  		:各家具作成関数におけるショートカット
-*** Return 			:void
-*************************************************************************/
 function set_material(object){
 	object.material.opacity = 0.5;
 	object.material.transparent = true;
@@ -51,13 +28,6 @@ function set_material(object){
 	object.material.alphaToCoverage = true;
 }
 
-/***********************************************************************
-*** Function Name	:camera_set()
-***	Designer		:蓮原裕太
-*** Date			:2022.6.14
-*** Function  		:カメラの初期化
-*** Return 			:void
-*************************************************************************/
 function camera_set(){
 	let position = Math.sqrt(floor_x*floor_x+floor_y*floor_y+floor_z*floor_z);
 	let max=floor_x;
@@ -85,13 +55,6 @@ function camera_set(){
 	console.log("position = " + position);
 }
 
-/***********************************************************************
-*** Function Name	:make_floor()
-***	Designer		:蓮原裕太
-*** Date			:2022.6.14
-*** Function  		:間取り作成関数
-*** Return 			:void
-*************************************************************************/
 function make_floor(){
 	startx = -floor_x/2;
 	starty = -floor_y/2;
@@ -119,13 +82,6 @@ function make_floor(){
 	scene.add(floor3d);
 }
 
-/***********************************************************************
-*** Function Name	:make_desk(i)
-***	Designer		:蓮原裕太
-*** Date			:2022.6.14
-*** Function  		:デスク作成関数．objectはGroupで管理．Groupはfurniture3dに格納後sceneに追加
-*** Return 			:void
-*************************************************************************/
 function make_desk(i){
 	let group = new THREE.Group();
 	let object;
@@ -188,13 +144,6 @@ function make_desk(i){
 	scene.add(furniture3d[i]);
 }
 
-/***********************************************************************
-*** Function Name	:make_chair(i)
-***	Designer		:蓮原裕太
-*** Date			:2022.6.28
-*** Function  		:椅子作成関数．objectはGroupで管理．Groupはfurniture3dに格納後sceneに追加
-*** Return 			:void
-*************************************************************************/
 function make_chair(i){
 	let group = new THREE.Group();
 	let object;
@@ -258,13 +207,6 @@ function make_chair(i){
 	scene.add(furniture3d[i]);
 }
 
-/***********************************************************************
-*** Function Name	:make_bed(i)
-***	Designer		:蓮原裕太
-*** Date			:2022.6.14
-*** Function  		:ベッド作成関数．objectはGroupで管理．Groupはfurniture3dに格納後sceneに追加
-*** Return 			:void
-*************************************************************************/
 function make_bed(i){
 	let group = new THREE.Group();
 	let object;
@@ -337,13 +279,6 @@ function make_bed(i){
 	scene.add(furniture3d[i]);
 }
 
-/***********************************************************************
-*** Function Name	:make_drawers(i)
-***	Designer		:蓮原裕太
-*** Date			:2022.6.14
-*** Function  		:タンス作成関数．objectはGroupで管理．Groupはfurniture3dに格納後sceneに追加
-*** Return 			:void
-*************************************************************************/
 function make_drawers(i){
 	let group = new THREE.Group();
 	let object;
@@ -420,13 +355,6 @@ function make_drawers(i){
 	scene.add(furniture3d[i]);
 }
 
-/***********************************************************************
-*** Function Name	:make_other(i)
-***	Designer		:蓮原裕太
-*** Date			:2022.6.14
-*** Function  		:その他作成関数．objectはGroupで管理．Groupはfurniture3dに格納後sceneに追加
-*** Return 			:void
-*************************************************************************/
 function make_other(i){
 	let group = new THREE.Group();
 	let object;
@@ -453,13 +381,6 @@ function make_other(i){
 	scene.add(furniture3d[i]);
 }
 
-/***********************************************************************
-*** Function Name	:make_bookshelf(i)
-***	Designer		:蓮原裕太
-*** Date			:2022.6.14
-*** Function  		:その他作成関数．objectはGroupで管理．Groupはfurniture3dに格納後sceneに追加
-*** Return 			:void
-*************************************************************************/
 function make_bookshelf(i){
 	let group = new THREE.Group();
 	let object;
@@ -543,13 +464,6 @@ function make_bookshelf(i){
 	scene.add(furniture3d[i]);
 }
 
-/***********************************************************************
-*** Function Name	:init3d()
-***	Designer		:蓮原裕太
-*** Date			:2022.6.14
-*** Function  		:3dモデルの初期化関数
-*** Return 			:void
-*************************************************************************/
 function init3d(){
 	delete_object();
 	make_floor();

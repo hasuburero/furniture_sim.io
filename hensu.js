@@ -1,11 +1,3 @@
-/*************************************************************************
-***		File Name		:hensu.js
-***		Version			:v1.0
-***		Designer		:蓮原裕太	
-***		Date			:2022.6.14
-***		Purpose			:グローバル変数や配列の宣言
-*************************************************************************/
-
 let furniture = []; //furniture.push(new furniture_class(x, y, z, type))で格納，furniture.pop(i)で削除.
 let furniture3d = []; //furniture3d.push(object)で3dオブジェクトもしくはグループを格納．furniture.pop(i)で削除．
 let floor3d;
